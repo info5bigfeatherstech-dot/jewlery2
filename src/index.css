@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #040D1E;
+  --color-navy-900: #081734;
+  --color-navy-800: #0A1C42;
+  --color-navy-700: #102B66;
+  --color-navy-600: #163B7A;
+  --color-gold-500: #D49B24;
+  --color-gold-400: #E89E28;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Rozha One', 'Poppins', sans-serif;
+}
+
+:root {
+  --background: #FAF7F0;
+  --foreground: #06142E;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Rainbow Text Gradient & Shimmer */
+.text-rainbow {
+  background: linear-gradient(135deg, #0A1C42 0%, #163B7A 30%, #D49B24 60%, #06B6D4 85%, #0A1C42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rainbow-shimmer {
+  background: linear-gradient(
+    90deg,
+    #0A1C42 0%,
+    #1E40AF 25%,
+    #D49B24 50%,
+    #3B82F6 75%,
+    #0A1C42 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+.rainbow-border-gradient {
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #1E40AF, #3B82F6, #06B6D4, #D49B24) border-box;
+  border: 2px solid transparent;
+}
+
+.rainbow-line {
+  height: 2px;
+  background: linear-gradient(90deg, #0A1C42, #1E40AF, #D49B24, #06B6D4, #0A1C42);
+}
+
+.rainbow-ring {
+  background: conic-gradient(from 0deg, #0A1C42, #1E40AF, #06B6D4, #D49B24, #0A1C42);
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+  background: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-dropdown {
+  background: rgba(254, 252, 249, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 45px -10px rgba(10, 28, 66, 0.18), 0 0 1px rgba(212, 155, 36, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8D6E5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #163B7A;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keyframes */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 35s linear infinite;
+}
+
+/* Shine Sweep Effect */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+.shine-sweep:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+.shadow-festive {
+  box-shadow: 0 10px 30px -5px rgba(10, 28, 66, 0.12), 0 4px 6px -2px rgba(212, 155, 36, 0.08);
+}
+
+.shadow-festive-hover {
+  box-shadow: 0 20px 40px -10px rgba(10, 28, 66, 0.22), 0 8px 16px -4px rgba(212, 155, 36, 0.15);
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
