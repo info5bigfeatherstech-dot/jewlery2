@@ -1,27 +1,38 @@
 import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Home, Grid, ShoppingBag, User, MessageCircle } from 'lucide-react'
+import { Home, ShoppingBag, User, MessageCircle } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 
 interface MobileBottomNavProps {
-  onOpenLogin: () => void
+  onOpenLogin?: () => void
 }
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenLogin }) => {
-  const [activeTab, setActiveTab] = useState<'home' | 'category' | 'cart' | 'account' | 'whatsapp'>('home')
-  const { toggleCart, getCartCount } = useStore()
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const [activeTab, setActiveTab] = useState<'home' | 'cart' | 'account' | 'whatsapp'>('home')
+  const { toggleCart, getCartCount, openLogin, user } = useStore()
   const cartCount = getCartCount()
 
-  const handleTabClick = (tab: 'home' | 'category' | 'cart' | 'account' | 'whatsapp') => {
+  const handleTabClick = (tab: 'home' | 'cart' | 'account' | 'whatsapp') => {
     setActiveTab(tab)
     if (tab === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (tab === 'category') {
-      document.getElementById('shop-earrings')?.scrollIntoView({ behavior: 'smooth' })
+      if (pathname !== '/') {
+        navigate('/')
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     } else if (tab === 'cart') {
       toggleCart()
     } else if (tab === 'account') {
-      onOpenLogin()
+      if (user) {
+        navigate('/profile')
+      } else if (onOpenLogin) {
+        onOpenLogin()
+      } else {
+        openLogin()
+      }
     } else if (tab === 'whatsapp') {
       window.open('https://wa.me/918826433922', '_blank')
     }
@@ -29,7 +40,6 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenLogin })
 
   const navItems = [
     { id: 'home' as const, label: 'Home', icon: Home },
-    { id: 'category' as const, label: 'Category', icon: Grid },
     { id: 'cart' as const, label: 'Bag', icon: ShoppingBag, badge: cartCount },
     { id: 'account' as const, label: 'Account', icon: User },
     { id: 'whatsapp' as const, label: 'WhatsApp', icon: MessageCircle },
@@ -46,7 +56,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenLogin })
             <button
               key={item.id}
               onClick={() => handleTabClick(item.id)}
-              className="relative flex flex-col items-center justify-center py-1 px-3 text-center"
+              className="relative flex flex-col items-center justify-center py-1 px-3 text-center cursor-pointer"
               aria-label={item.label}
             >
               {/* Sliding Pill Indicator for Active Tab */}

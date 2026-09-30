@@ -112,10 +112,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {product.hoverImage && (
           <img
             src={product.hoverImage}
-            alt={`${product.title} alternate view`}
+            alt=""
+            aria-hidden="true"
             loading="lazy"
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-              isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100 pointer-events-none'
+            onError={(e) => {
+              ;(e.target as HTMLImageElement).style.display = 'none'
+            }}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 pointer-events-none ${
+              isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
             }`}
           />
         )}
@@ -210,10 +214,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             {product.title}
           </h3>
 
-          {/* Dimension/Medium for Artwork if available */}
-          {product.isArtwork && product.dimensions && (
-            <p className="text-[11px] text-[#7A584A] mb-2 line-clamp-1 italic">
-              {product.dimensions} • {product.medium?.split(',')[0]}
+          {/* Category Tag */}
+          {product.category && (
+            <p className="text-[11px] text-[#7A584A] mb-1.5 font-medium tracking-wide">
+              {product.category}
             </p>
           )}
         </div>

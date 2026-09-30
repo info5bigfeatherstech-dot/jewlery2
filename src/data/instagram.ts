@@ -11,18 +11,18 @@ export const instagramPosts: InstagramPost[] = [
   },
   {
     id: 'insta-2',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80',
     likes: 2190,
     comments: 142,
-    caption: 'Studio work-in-progress: layering 24k gold leaf on Lord Ganesha texture canvas 🎨 #ArtistRicha #IndianArt #SpiritualDecor',
+    caption: 'Workshop preview: hand-setting Jaipur Kundan into our Royal Heritage Choker ✨ #AureliaJewels #JaipurKundan #BridalJewellery',
     link: 'https://www.instagram.com/aurelia.jewels'
   },
   {
     id: 'insta-3',
-    image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1611591475152-47831c367468?auto=format&fit=crop&w=600&q=80',
     likes: 980,
     comments: 54,
-    caption: 'When a watch looks like royal temple jewellery ⌚🌸 Heritage Kundan Flower Watch in jade emerald #KundanWatch',
+    caption: 'Pure royal wrist elegance ✨ Royal Heritage Kundan Floral Kada in jade emerald #KundanKada #AureliaJewels',
     link: 'https://www.instagram.com/aurelia.jewels'
   },
   {
@@ -35,10 +35,10 @@ export const instagramPosts: InstagramPost[] = [
   },
   {
     id: 'insta-5',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80',
     likes: 1870,
     comments: 110,
-    caption: 'Serenity in shades of Prussian cobalt and warm foil. Modern Buddha triptych ready for delivery 🕊️ #ContemporaryIndianArt',
+    caption: 'Five layers of lustrous pearls and uncut Polki. Heirloom bridal statement choker ready for delivery 💍 #IndianBride #BridalHaar',
     link: 'https://www.instagram.com/aurelia.jewels'
   },
   {

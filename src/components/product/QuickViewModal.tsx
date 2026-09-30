@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Star, Heart, ShoppingBag, ShieldCheck, Truck, RefreshCw, Check } from 'lucide-react'
 import { useStore } from '@/store/useStore'
@@ -11,6 +11,33 @@ export const QuickViewModal: React.FC = () => {
   const { addToast } = useToastStore()
   const [quantity, setQuantity] = useState(1)
 
+  // Body scroll lock and ESC key dismissal for optimal performance
+  useEffect(() => {
+    if (!isQuickViewOpen) return
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeQuickView()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = originalOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isQuickViewOpen, closeQuickView])
+
+  // Reset quantity whenever product changes
+  useEffect(() => {
+    if (quickViewProduct) {
+      setQuantity(1)
+    }
+  }, [quickViewProduct?.id])
+
   if (!quickViewProduct) return null
 
   const isFavorited = isInWishlist(quickViewProduct.id)
@@ -21,12 +48,16 @@ export const QuickViewModal: React.FC = () => {
 
   const handleAddToCart = () => {
     addToCart(quickViewProduct, quantity)
-    confetti({
-      particleCount: 30,
-      spread: 70,
-      origin: { y: 0.7, x: 0.5 },
-      colors: ['#D49B24', '#0A1C42', '#EC4899', '#10B981']
-    })
+    try {
+      confetti({
+        particleCount: 30,
+        spread: 70,
+        origin: { y: 0.7, x: 0.5 },
+        colors: ['#D49B24', '#0A1C42', '#EC4899', '#10B981']
+      })
+    } catch {
+      // Confetti fallback
+    }
     addToast({
       title: quickViewProduct.title,
       description: `Added ${quantity} item(s) to bag • ${formatPrice(quickViewProduct.price * quantity)}`,
@@ -39,24 +70,25 @@ export const QuickViewModal: React.FC = () => {
   return (
     <AnimatePresence>
       {isQuickViewOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          {/* Backdrop */}
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+          {/* Smooth Backdrop Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
             onClick={closeQuickView}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
             aria-hidden="true"
           />
 
-          {/* Modal Card */}
+          {/* Optimized Modal Dialog Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 14 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.94, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-3xl bg-[#FAF7F0] rounded-3xl shadow-2xl border border-[#EADBCE] overflow-hidden z-10 my-auto"
+            exit={{ opacity: 0, scale: 0.96, y: 8 }}
+            transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-3xl bg-[#FAF7F0] rounded-3xl shadow-2xl border border-[#EADBCE] overflow-hidden z-10 my-auto transform-gpu will-change-transform"
             role="dialog"
             aria-modal="true"
             aria-label={quickViewProduct.title}
@@ -64,19 +96,19 @@ export const QuickViewModal: React.FC = () => {
             {/* Close Button */}
             <button
               onClick={closeQuickView}
-              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#FDFBF7]/90 text-[#0A1C42] hover:bg-[#0A1C42] hover:text-white transition-colors shadow-md"
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#FDFBF7]/90 text-[#0A1C42] hover:bg-[#0A1C42] hover:text-white transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 max-h-[90vh] overflow-y-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 max-h-[88vh] overflow-y-auto">
               {/* Product Visual */}
-              <div className="relative bg-[#F4EDE0] p-6 flex items-center justify-center min-h-[320px] md:min-h-[440px]">
+              <div className="relative bg-[#F4EDE0] p-6 flex items-center justify-center min-h-[300px] md:min-h-[420px]">
                 <img
                   src={quickViewProduct.image}
                   alt={quickViewProduct.title}
-                  className="w-full h-full max-h-[400px] object-cover rounded-2xl shadow-festive"
+                  className="w-full h-full max-h-[380px] object-cover rounded-2xl shadow-festive"
                 />
                 {quickViewProduct.badge && (
                   <span className="absolute top-8 left-8 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0A1C42] text-white shadow-md">
@@ -86,7 +118,7 @@ export const QuickViewModal: React.FC = () => {
               </div>
 
               {/* Product Details */}
-              <div className="p-6 md:p-8 flex flex-col justify-between space-y-5 bg-[#FDFBF7]">
+              <div className="p-6 md:p-8 flex flex-col justify-between space-y-4 bg-[#FDFBF7]">
                 <div>
                   <div className="flex items-center justify-between text-xs text-[#7A584A] mb-2">
                     <span className="uppercase tracking-widest text-[#B87A28] font-bold">
@@ -101,12 +133,12 @@ export const QuickViewModal: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-[#06142E] leading-tight mb-3">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#06142E] leading-tight mb-3">
                     {quickViewProduct.title}
                   </h3>
 
                   {/* Pricing */}
-                  <div className="flex items-baseline gap-3 mb-4">
+                  <div className="flex items-baseline gap-3 mb-3">
                     <span className="text-2xl font-black text-[#0A1C42]">
                       {formatPrice(quickViewProduct.price)}
                     </span>
@@ -123,14 +155,14 @@ export const QuickViewModal: React.FC = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-[#5C453C] leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-[#5C453C] leading-relaxed mb-4">
                     {quickViewProduct.description}
                   </p>
 
                   {/* Features list */}
                   {quickViewProduct.features && (
-                    <div className="space-y-1.5 mb-6">
-                      <div className="text-xs font-bold text-[#0A1C42] uppercase tracking-wider mb-1">
+                    <div className="space-y-1.5 mb-4">
+                      <div className="text-[11px] font-bold text-[#0A1C42] uppercase tracking-wider mb-1">
                         Craft Highlights:
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
@@ -145,32 +177,35 @@ export const QuickViewModal: React.FC = () => {
                   )}
                 </div>
 
-                {/* Actions */}
+                {/* Actions & Quantity */}
                 <div className="space-y-3 pt-3 border-t border-[#EADBCE]">
                   <div className="flex items-center gap-3">
-                    {/* Quantity Selector */}
-                    <div className="flex items-center border border-[#D5C2B4] rounded-xl bg-white px-2 py-1">
+                    {/* Quantity Picker */}
+                    <div className="flex items-center border border-[#D5C2B4] rounded-full bg-white px-2 py-1 shadow-sm">
                       <button
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="p-1.5 hover:text-[#0A1C42] text-gray-500 font-bold"
+                        onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                        disabled={quantity <= 1}
+                        className="w-7 h-7 flex items-center justify-center rounded-full text-[#0A1C42] hover:bg-[#FAF7F0] disabled:opacity-30 transition-colors cursor-pointer text-sm font-bold"
                         aria-label="Decrease quantity"
                       >
                         -
                       </button>
-                      <span className="px-3 text-sm font-semibold text-[#0A1C42]">{quantity}</span>
+                      <span className="w-8 text-center text-xs font-bold text-[#0A1C42]">
+                        {quantity}
+                      </span>
                       <button
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="p-1.5 hover:text-[#0A1C42] text-gray-500 font-bold"
+                        onClick={() => setQuantity((q) => q + 1)}
+                        className="w-7 h-7 flex items-center justify-center rounded-full text-[#0A1C42] hover:bg-[#FAF7F0] transition-colors cursor-pointer text-sm font-bold"
                         aria-label="Increase quantity"
                       >
                         +
                       </button>
                     </div>
 
-                    {/* Add to Bag Button */}
+                    {/* Add to Bag CTA */}
                     <button
                       onClick={handleAddToCart}
-                      className="flex-1 bg-[#0A1C42] hover:bg-[#06122B] text-white py-3 px-5 rounded-xl font-semibold text-sm shadow-festive flex items-center justify-center gap-2 transition-colors border border-[#D49B24]/30"
+                      className="flex-1 bg-[#0A1C42] hover:bg-[#06122B] text-white py-3 px-5 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-festive transition-all cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
                     >
                       <ShoppingBag className="w-4 h-4 text-[#D49B24]" />
                       <span>Add to Bag • {formatPrice(quickViewProduct.price * quantity)}</span>
@@ -178,32 +213,37 @@ export const QuickViewModal: React.FC = () => {
 
                     {/* Wishlist Button */}
                     <button
-                      onClick={() => toggleWishlist(quickViewProduct.id)}
-                      className={`p-3 rounded-xl border transition-colors ${
+                      onClick={() => {
+                        const added = toggleWishlist(quickViewProduct.id)
+                        addToast({
+                          title: added ? 'Saved to Wishlist' : 'Removed from Wishlist',
+                          description: quickViewProduct.title,
+                          image: quickViewProduct.image,
+                          type: added ? 'heart' : 'info'
+                        })
+                      }}
+                      className={`p-3 rounded-full border transition-all cursor-pointer ${
                         isFavorited
-                          ? 'bg-[#0A1C42] text-pink-400 border-[#0A1C42]'
-                          : 'bg-white text-[#0A1C42] border-[#D5C2B4] hover:bg-[#FAF7F0]'
+                          ? 'border-[#EC4899] bg-[#EC4899]/10 text-[#EC4899]'
+                          : 'border-[#D5C2B4] bg-white text-[#7A584A] hover:text-[#EC4899] hover:border-[#EC4899]'
                       }`}
-                      aria-label="Save to wishlist"
+                      aria-label={isFavorited ? 'Remove from Wishlist' : 'Add to Wishlist'}
                     >
-                      <Heart className={`w-5 h-5 ${isFavorited ? 'fill-current' : ''}`} />
+                      <Heart className={`w-4 h-4 ${isFavorited ? 'fill-[#EC4899]' : ''}`} />
                     </button>
                   </div>
 
-                  {/* Trust mini-strip */}
-                  <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-center text-[#7A584A]">
-                    <div className="flex flex-col items-center gap-0.5">
-                      <Truck className="w-3.5 h-3.5 text-[#0A1C42]" />
-                      <span>Free Shipping &gt; ₹999</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-0.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#0A1C42]" />
-                      <span>Anti-Tarnish Seal</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-0.5">
-                      <RefreshCw className="w-3.5 h-3.5 text-[#0A1C42]" />
-                      <span>Easy 7-Day Exchange</span>
-                    </div>
+                  {/* Trust guarantees */}
+                  <div className="flex items-center justify-between text-[11px] text-[#7A584A] pt-1">
+                    <span className="flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" /> Lifetime Anti-Tarnish
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Truck className="w-3.5 h-3.5 text-[#D49B24]" /> Free Insured Delivery
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <RefreshCw className="w-3.5 h-3.5 text-[#163B7A]" /> 7-Day Exchange
+                    </span>
                   </div>
                 </div>
               </div>

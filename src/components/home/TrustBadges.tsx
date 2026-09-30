@@ -22,7 +22,7 @@ export const TrustBadges: React.FC = () => {
     {
       icon: Award,
       title: 'Trusted Artisan Supplier',
-      subtitle: 'Authentic anti-tarnish micro plating and original signed artworks by Richa.'
+      subtitle: 'Authentic anti-tarnish micro gold plating and hand-set Jaipur Kundan stones.'
     }
   ]
 

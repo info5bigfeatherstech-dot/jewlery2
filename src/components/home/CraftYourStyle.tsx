@@ -1,25 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, MessageSquare, Gem, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 
 export const CraftYourStyle: React.FC = () => {
-  const buttonRef = useRef<HTMLAnchorElement>(null)
-  const [btnOffset, setBtnOffset] = useState({ x: 0, y: 0 })
-
-  // Magnetic button effect on mouse move
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!buttonRef.current) return
-    const { left, top, width, height } = buttonRef.current.getBoundingClientRect()
-    const centerX = left + width / 2
-    const centerY = top + height / 2
-    const distanceX = (e.clientX - centerX) * 0.35
-    const distanceY = (e.clientY - centerY) * 0.35
-    setBtnOffset({ x: distanceX, y: distanceY })
-  }
-
-  const handleMouseLeave = () => {
-    setBtnOffset({ x: 0, y: 0 })
-  }
 
   return (
     <section id="craft-your-style" className="py-20 sm:py-28 bg-[#FAF7F0] relative overflow-hidden">
@@ -38,18 +21,18 @@ export const CraftYourStyle: React.FC = () => {
             className="lg:col-span-7 space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0A1C42]/10 text-[#0A1C42] text-xs font-bold uppercase tracking-wider">
-              <Gem className="w-3.5 h-3.5 text-[#D49B24]" />
+              {/* <Gem className="w-3.5 h-3.5 text-[#D49B24]" /> */}
               <span>Bespoke & Bridal Trousseau</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#06142E] leading-[1.15]">
               Craft Your Style With{' '}
-              <span className="rainbow-shimmer">Artist Richa</span>
+              <span className="rainbow-shimmer">Designer Richa</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#7A584A] leading-relaxed max-w-xl">
-              Have a dream wedding lehenga that needs custom color-matched Kundan jewellery? Or desire a bespoke textured Ganesha canvas sized precisely for your living room alcove? 
-              Collaborate directly with Artist Richa to bring your handcrafted vision to life.
+            <p className="text-sm text-[#7A584A] leading-relaxed max-w-xl">
+              Have a dream wedding lehenga that needs custom color-matched Kundan jewellery? Or desire an heirloom bridal choker crafted with genuine stones and anti-tarnish micro-gold finish? 
+              Collaborate directly with Designer Richa to bring your bespoke jewellery vision to life.
             </p>
 
             {/* Feature Bullets */}
@@ -60,7 +43,7 @@ export const CraftYourStyle: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-xs font-semibold text-[#0A1C42]">
                 <CheckCircle className="w-4 h-4 text-[#10B981] flex-shrink-0" />
-                <span>Made-to-Order Canvas Dimensions</span>
+                <span>Bespoke Choker & Haar Sizing</span>
               </div>
               <div className="flex items-center gap-2 text-xs font-semibold text-[#0A1C42]">
                 <CheckCircle className="w-4 h-4 text-[#10B981] flex-shrink-0" />
@@ -72,24 +55,18 @@ export const CraftYourStyle: React.FC = () => {
               </div>
             </div>
 
-            {/* Magnetic Button */}
+            {/* Consultation Button */}
             <div className="pt-4">
-              <motion.a
-                ref={buttonRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                animate={{ x: btnOffset.x, y: btnOffset.y }}
-                transition={{ type: 'spring', damping: 15, stiffness: 200, mass: 0.1 }}
-                href="https://wa.me/918826433922?text=Namaste%20Richa!%20I'd%20like%20to%20discuss%20a%20custom%20bespoke%20jewellery/art%20order."
+              <a
+                href="https://wa.me/918826433922?text=Namaste%20Richa!%20I'd%20like%20to%20discuss%20a%20custom%20bespoke%20jewellery%20order."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#0A1C42] hover:bg-[#06122B] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base shadow-festive transition-shadow border border-[#D49B24]/40 group"
+                className="inline-flex items-center gap-2 bg-[#0A1C42] hover:bg-[#06122B] text-white px-6 py-3 rounded-full font-semibold text-sm shadow-md hover:shadow-lg transition-all group"
               >
-                <MessageSquare className="w-4 h-4 text-[#D49B24]" />
                 <span>Schedule Bespoke Consultation</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </motion.a>
-              <p className="text-[11px] text-[#7A584A] mt-2">
+              </a>
+              <p className="text-xs text-[#7A584A] mt-2">
                 Usually responds within 2 business hours • Free design estimate
               </p>
             </div>
@@ -128,13 +105,13 @@ export const CraftYourStyle: React.FC = () => {
               className="absolute right-4 bottom-4 w-60 sm:w-72 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 rotate-3"
             >
               <img
-                src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
-                alt="Artist Richa Painting"
+                src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"
+                alt="Bespoke Kundan Choker"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">
                 <span className="text-[11px] font-bold text-white uppercase tracking-wider">
-                  Original Texture Commissions
+                  Bespoke Kundan Chokers
                 </span>
               </div>
             </motion.div>

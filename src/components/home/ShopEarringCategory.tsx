@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { earringCategories } from '@/data/categories'
 
@@ -18,16 +19,19 @@ export const ShopEarringCategory: React.FC = () => {
         <div className="overflow-x-auto no-scrollbar pb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
           <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 lg:gap-4 min-w-[760px] sm:min-w-0">
             {earringCategories.map((cat, index) => (
-              <motion.a
+              <Link
                 key={cat.id}
-                href="#jhumkas-section"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
-                whileHover={{ y: -4 }}
+                to={`/category/jhumkas`}
                 className="group flex-1 min-w-[100px] sm:min-w-0 flex flex-col items-center cursor-pointer select-none"
               >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
+                  whileHover={{ y: -4 }}
+                  className="w-full flex flex-col items-center"
+                >
                 {/* Rounded Square Card Image Container */}
                 <div className="w-full aspect-square rounded-[22px] overflow-hidden bg-[#F4EDE0] shadow-sm group-hover:shadow-md transition-all duration-300">
                   <img
@@ -42,7 +46,8 @@ export const ShopEarringCategory: React.FC = () => {
                 <span className="font-serif text-[13px] sm:text-[14px] font-medium text-[#2d2d2d] group-hover:text-[#163B7A] transition-colors mt-2.5 text-center leading-snug">
                   {cat.name}
                 </span>
-              </motion.a>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

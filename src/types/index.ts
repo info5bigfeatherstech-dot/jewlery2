@@ -67,3 +67,37 @@ export interface HeroSlideData {
   image: string
   tag: string
 }
+
+export interface OrderItem {
+  product: Product
+  quantity: number
+  price: number
+}
+
+export interface Order {
+  id: string
+  date: string
+  items: OrderItem[]
+  subtotal: number
+  discount: number
+  total: number
+  status: 'Processing' | 'Dispatched' | 'Delivered'
+  deliveryAddress: {
+    fullName: string
+    phone: string
+    address: string
+    city: string
+    pincode: string
+  }
+  paymentMethod: string
+  trackingNumber?: string
+}
+
+export interface UserProfile {
+  name: string
+  phone: string
+  email: string
+  isVip: boolean
+  memberSince?: string
+  tier?: string
+}

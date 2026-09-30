@@ -1,10 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react'
 import { useStore, FREE_SHIPPING_THRESHOLD } from '@/store/useStore'
 import { formatPrice } from '@/lib/utils'
 
 export const CartDrawer: React.FC = () => {
+  const navigate = useNavigate()
   const { isCartOpen, closeCart, items, updateQuantity, removeFromCart, getSubtotal } = useStore()
 
   const subtotal = getSubtotal()
@@ -88,7 +90,7 @@ export const CartDrawer: React.FC = () => {
                     Your shopping bag is empty
                   </h3>
                   <p className="text-sm text-[#7A584A] max-w-xs mb-6">
-                    Explore our handcrafted festive jhumkas, Kundan watch bracelets, and canvas paintings.
+                    Explore our handcrafted festive jhumkas, royal Kundan bangles, and bridal chokers.
                   </p>
                   <button
                     onClick={closeCart}
@@ -180,8 +182,11 @@ export const CartDrawer: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => alert('Proceeding to Secure Checkout with Razorpay / UPI / Cards')}
-                  className="w-full bg-[#0A1C42] hover:bg-[#06122B] text-white py-3.5 px-4 rounded-xl font-semibold text-sm shadow-festive flex items-center justify-center gap-2 transition-all group"
+                  onClick={() => {
+                    closeCart()
+                    navigate('/checkout')
+                  }}
+                  className="w-full bg-[#0A1C42] hover:bg-[#06122B] text-white py-3.5 px-4 rounded-xl font-semibold text-sm shadow-festive flex items-center justify-center gap-2 transition-all group cursor-pointer"
                 >
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

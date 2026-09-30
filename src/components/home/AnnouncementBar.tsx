@@ -7,7 +7,7 @@ export const AnnouncementBar: React.FC = () => {
     { text: '100% Anti-Tarnish Jewellery Guarantee', icon: ShieldCheck },
     { text: 'Handcrafted With Love By Indian Artisans', icon: HeartHandshake },
     { text: 'On-Call & WhatsApp Support: +91 88264 33922', icon: PhoneCall },
-    { text: 'Original Signed Paintings & Sacred Canvas Art', icon: Sparkles },
+    { text: 'Certified Jaipur Kundan & Real Jadau Settings', icon: Sparkles },
   ]
 
   return (

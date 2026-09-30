@@ -1,16 +1,57 @@
-import React, { useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import Autoplay from 'embla-carousel-autoplay'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { ProductCard } from '@/components/product/ProductCard'
 import { newArrivalsData } from '@/data/products'
 
 export const NewArrivalsSection: React.FC = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    containScroll: 'trimSnaps',
-    dragFree: true
-  })
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      containScroll: 'trimSnaps',
+      dragFree: false,
+      slidesToScroll: 3,
+      breakpoints: {
+        '(max-width: 639px)': { slidesToScroll: 1 },
+        '(min-width: 640px) and (max-width: 1023px)': { slidesToScroll: 2 },
+        '(min-width: 1024px)': { slidesToScroll: 3 }
+      },
+      loop: true
+    },
+    [
+      Autoplay({
+        delay: 3500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true
+      })
+    ]
+  )
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(true)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setCanScrollPrev(emblaApi.canScrollPrev())
+    setCanScrollNext(emblaApi.canScrollNext())
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    setScrollSnaps(emblaApi.scrollSnapList())
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onSelect)
+    }
+  }, [emblaApi, onSelect])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -20,8 +61,12 @@ export const NewArrivalsSection: React.FC = () => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index)
+  }, [emblaApi])
+
   const handleShopNow = () => {
-    document.getElementById('new-arrivals-grid')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('new-arrivals-carousel')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -31,7 +76,7 @@ export const NewArrivalsSection: React.FC = () => {
       <div className="relative w-full bg-[#E8D9C5] overflow-hidden select-none shadow-sm">
         <div className="relative max-w-[1920px] mx-auto w-full">
           <a
-            href="#new-arrivals-grid"
+            href="#new-arrivals-carousel"
             onClick={handleShopNow}
             className="block relative w-full cursor-pointer group"
             aria-label="Shop New Arrivals Collection"
@@ -55,70 +100,84 @@ export const NewArrivalsSection: React.FC = () => {
         </div>
       </div>
 
-      <div id="new-arrivals-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10">
+      <div id="new-arrivals-carousel" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10">
         
-        {/* Centered Heading exactly as in the reference design */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-10 gap-4">
-          <div className="text-center sm:text-left mx-auto sm:mx-0">
-            <h2 className="font-sans font-bold text-2xl sm:text-3xl text-[#1c1917] tracking-tight">
-              New Arrivals
-            </h2>
-          </div>
+        {/* Section Header: Title */}
+        <div className="mb-8 sm:mb-10 text-center sm:text-left">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#1c1917] tracking-tight">
+            New Arrivals
+          </h2>
+          <p className="text-xs sm:text-sm text-[#7A584A] mt-1 capitalize">
+            Handcrafted in limited batches — anti-tarnish micro gold polish & uncut stones
+          </p>
+        </div>
 
-          <div className="flex items-center justify-center sm:justify-end gap-4">
-            {/* Carousel controls for mobile */}
-            <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={scrollPrev}
-                className="p-2 rounded-full border border-[#D5C2B4] bg-white text-[#0A1C42] hover:bg-[#FAF7F0] shadow-sm"
-                aria-label="Previous arrivals"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={scrollNext}
-                className="p-2 rounded-full border border-[#D5C2B4] bg-white text-[#0A1C42] hover:bg-[#FAF7F0] shadow-sm"
-                aria-label="Next arrivals"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            <a
-              href="#shop-earrings"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#163B7A] hover:text-[#0A1C42] uppercase tracking-wider group"
+        {/* Carousel Slider Container with Side Floating Arrows */}
+        <div className="relative group/carousel">
+          
+          {/* Floating Left Arrow (Desktop) */}
+          {canScrollPrev && (
+            <button
+              onClick={scrollPrev}
+              className="hidden xl:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#0A1C42] hover:bg-[#0A1C42] hover:text-white border border-[#D5C2B4] shadow-festive items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 cursor-pointer"
+              aria-label="Previous slide"
             >
-              <span>View All ({newArrivalsData.length})</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          )}
+
+          {/* Floating Right Arrow (Desktop) */}
+          {canScrollNext && (
+            <button
+              onClick={scrollNext}
+              className="hidden xl:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#0A1C42] hover:bg-[#0A1C42] hover:text-white border border-[#D5C2B4] shadow-festive items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 cursor-pointer"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          )}
+
+          {/* Embla Carousel Viewport */}
+          <div className="overflow-hidden -mx-2 px-2" ref={emblaRef}>
+            <div className="flex gap-4 sm:gap-5 py-2">
+              {newArrivalsData.map((product, idx) => (
+                <div
+                  key={product.id}
+                  className="flex-[0_0_82%] sm:flex-[0_0_calc(50%-10px)] md:flex-[0_0_calc(33.333%-14px)] lg:flex-[0_0_calc(25%-15px)] min-w-0"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    className="h-full"
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Mobile View: Embla Carousel */}
-        <div className="md:hidden overflow-hidden -mx-4 px-4" ref={emblaRef}>
-          <div className="flex gap-4">
-            {newArrivalsData.map((product) => (
-              <div key={product.id} className="flex-[0_0_80%] sm:flex-[0_0_55%] min-w-0">
-                <ProductCard product={product} />
-              </div>
+        {/* Carousel Pagination Dots */}
+        {scrollSnaps.length > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === selectedIndex
+                    ? 'w-7 h-2.5 bg-[#0A1C42]'
+                    : 'w-2.5 h-2.5 bg-[#D5C2B4] hover:bg-[#0A1C42]/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Desktop View: Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {newArrivalsData.map((product, idx) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: idx * 0.07, ease: 'easeOut' }}
-            >
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   )

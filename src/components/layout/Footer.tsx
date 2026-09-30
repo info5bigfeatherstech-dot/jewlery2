@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Send,
@@ -11,8 +12,10 @@ import {
   CreditCard
 } from 'lucide-react'
 import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons'
+import { useStore } from '@/store/useStore'
 
 export const Footer: React.FC = () => {
+  const { openLogin } = useStore()
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
@@ -31,21 +34,23 @@ export const Footer: React.FC = () => {
   }
 
   const shopLinks = [
-    { label: 'All Festive Jhumkas', href: '#jhumkas-section' },
-    { label: 'Kundan Watch Bracelets', href: '#new-arrivals-section' },
-    { label: 'Sacred Wall Art by Richa', href: '#artwork-section' },
-    { label: 'Earring Silhouettes', href: '#shop-earrings' },
-    { label: 'Bridal Trousseau & Sets', href: '#craft-your-style' },
-    { label: 'Anti-Tarnish Collection', href: '#jhumkas-section' },
+    { label: 'All Festive Jhumkas', href: '/#jhumkas-section' },
+    { label: 'Royal Bangles & Kadas', href: '/bangles' },
+    { label: 'Bridal Haar & Chokers', href: '/#necklaces-section' },
+    { label: 'Earring Silhouettes', href: '/#shop-earrings' },
+    { label: 'Bridal Trousseau & Sets', href: '/#craft-your-style' },
+    { label: 'Anti-Tarnish Collection', href: '/#jhumkas-section' },
   ]
 
-  const policyLinks = [
-    { label: 'Shipping & Delivery Policy', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Refund & 7-Day Exchange', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Track Your Order', href: '#' },
-    { label: 'Contact Customer Support', href: '#' },
+  const policyLinks: Array<{ label: string; href?: string; action?: () => void }> = [
+    { label: 'My Saved Wishlist', href: '/wishlist' },
+    { label: 'My Privé Profile & Orders', href: '/profile' },
+    { label: 'Express Checkout', href: '/checkout' },
+    { label: 'Shipping & Delivery Policy', href: '/policies/shipping' },
+    { label: 'Refund & 7-Day Exchange', href: '/policies/returns' },
+    { label: 'Privacy Policy', href: '/policies/privacy' },
+    { label: 'Terms of Service', href: '/policies/terms' },
+    { label: 'VIP Privé Sign In', action: openLogin },
   ]
 
   return (
@@ -69,7 +74,7 @@ export const Footer: React.FC = () => {
                 Unlock 10% Off Your First Festive Order
               </h3>
               <p className="text-sm text-[#EADFCB] mt-1.5 max-w-lg font-light">
-                Subscribe for private invitations to Artist Richa’s newest canvas unveilings, bridal previews, and limited-edition Kundan watch releases.
+                Subscribe for private invitations to new heirloom jewellery unveilings, bridal trousseau previews, and limited-edition Kundan kada releases.
               </p>
             </div>
 
@@ -186,9 +191,19 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs text-[#EADFCB]">
               {policyLinks.map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="hover:text-white transition-colors block py-0.5">
-                    {link.label}
-                  </a>
+                  {link.action ? (
+                    <button
+                      type="button"
+                      onClick={link.action}
+                      className="hover:text-white transition-colors block py-0.5 text-left cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <Link to={link.href!} className="hover:text-white transition-colors block py-0.5">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -202,7 +217,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-xs text-[#EADFCB]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#D49B24] flex-shrink-0 mt-0.5" />
-                <span>Richa Art Studio, D-48 Sector 15, NCR / Jaipur Atelier, India</span>
+                <span>Aurelia Jewellery Atelier, Johari Bazaar & NCR Heritage Studio, India</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#D49B24] flex-shrink-0" />

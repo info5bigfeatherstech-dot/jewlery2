@@ -18,8 +18,8 @@ export const customerReviewsRow1: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '4 days ago',
-    text: 'I ordered the Heritage Elephant Kundan Watch Bracelet. The craftsmanship is like a royal heirloom from Jaipur! Everyone at the party asked me where I bought it.',
-    productTitle: 'Heritage Elephant Kundan Watch',
+    text: 'I ordered the Heritage Gajraj Elephant Kundan Kada. The craftsmanship is like a royal heirloom from Jaipur! Everyone at the party asked me where I bought it.',
+    productTitle: 'Heritage Gajraj Elephant Kada',
     verified: true,
     location: 'Bengaluru, Karnataka'
   },
@@ -29,8 +29,8 @@ export const customerReviewsRow1: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '1 week ago',
-    text: 'Richa’s Golden Ganesha canvas painting arrived securely crated. The 3D gold leaf impasto catches the morning diya light in our puja alcove so divinely!',
-    productTitle: 'Golden Abstract Ganesha Art',
+    text: 'The Royal Jaipur Kundan Choker is even more breathtaking in person! The emerald drops and micro-gold shine elevated my bridal reception lehenga so effortlessly.',
+    productTitle: 'Royal Jaipur Kundan Choker',
     verified: true,
     location: 'Kolkata, West Bengal'
   },
@@ -65,8 +65,8 @@ export const customerReviewsRow2: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '3 days ago',
-    text: 'Lotus Kundan Flower Watch Pink is the sweetest accessory I own. Subtle yet luxurious. Works as a bracelet and a watch together!',
-    productTitle: 'Lotus Kundan Flower Watch Pink',
+    text: 'Lotus Kundan Meenakari Kada is the sweetest piece I own. Subtle yet opulent. The openable clasp is so comfortable!',
+    productTitle: 'Lotus Kundan Meenakari Kada',
     verified: true,
     location: 'Kochi, Kerala'
   },
@@ -76,8 +76,8 @@ export const customerReviewsRow2: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '5 days ago',
-    text: 'Modern Buddha 3-Panel wall set gave our newly renovated drawing room a five-star hotel boutique presence. High quality stretchers and vibrant gold tones.',
-    productTitle: 'Modern Buddha 3-Panel Art',
+    text: 'The Antique Nakshi Temple Gold Choker gave my silk saree a true South Indian royal heritage look. Heavy and opulent yet so comfortable to wear all day.',
+    productTitle: 'Antique Nakshi Temple Gold Choker',
     verified: true,
     location: 'Chandigarh'
   },
@@ -109,8 +109,8 @@ export const customerReviewsRow2: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '3 weeks ago',
-    text: 'The Lord Shiva Trishul art painting has such electric spiritual energy. The knife texture work is magnificent. An investment in real soulful art.',
-    productTitle: 'Lord Shiva Trishul Art Painting',
+    text: 'The Grand Bridal Rani Haar has such royal heirloom presence! The five-layer pearls and peacock jadau pendant are masterpieces of Indian craftsmanship.',
+    productTitle: 'Grand Bridal Trousseau Statement Rani Haar',
     verified: true,
     location: 'Hyderabad, Telangana'
   }

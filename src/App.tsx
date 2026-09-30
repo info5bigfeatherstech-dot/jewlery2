@@ -1,98 +1,110 @@
-import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { AnnouncementBar } from '@/components/home/AnnouncementBar'
 import { Header } from '@/components/layout/Header'
-import { QuickCategoryStrip } from '@/components/home/QuickCategoryStrip'
-import { HeroSlider } from '@/components/home/HeroSlider'
-import { ShopEarringCategory } from '@/components/home/ShopEarringCategory'
-import { JhumkasSection } from '@/components/home/JhumkasSection'
-import { PromoBanner } from '@/components/home/PromoBanner'
-import { NewArrivalsSection } from '@/components/home/NewArrivalsSection'
-import { ArtworkSection } from '@/components/home/ArtworkSection'
-import { ReviewsSection } from '@/components/home/ReviewsSection'
-import { TrustBadges } from '@/components/home/TrustBadges'
-import { CraftYourStyle } from '@/components/home/CraftYourStyle'
 import { Footer } from '@/components/layout/Footer'
 import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
-import { BackToTop } from '@/components/ui/BackToTop'
 import { CartDrawer } from '@/components/layout/CartDrawer'
 import { QuickViewModal } from '@/components/product/QuickViewModal'
+import { LoginModal } from '@/components/layout/LoginModal'
 import { ToastContainer } from '@/components/ui/ToastContainer'
 import { CursorGlow } from '@/components/ui/CursorGlow'
-import { LoginModal } from '@/components/layout/LoginModal'
+import { ScrollToTop } from '@/components/common/ScrollToTop'
+import { useStore } from '@/store/useStore'
+
+// Pages
+import { HomePage } from '@/pages/HomePage'
+import { CollectionPage } from '@/pages/CollectionPage'
+import { CraftYourStylePage } from '@/pages/CraftYourStylePage'
+import { AboutPage } from '@/pages/AboutPage'
+import { PrivacyPolicyPage } from '@/pages/policies/PrivacyPolicyPage'
+import { ShippingPolicyPage } from '@/pages/policies/ShippingPolicyPage'
+import { ReturnsPolicyPage } from '@/pages/policies/ReturnsPolicyPage'
+import { TermsPolicyPage } from '@/pages/policies/TermsPolicyPage'
+import { PoliciesHubPage } from '@/pages/policies/PoliciesHubPage'
+import { WishlistPage } from '@/pages/WishlistPage'
+import { CheckoutPage } from '@/pages/CheckoutPage'
+import { ProfilePage } from '@/pages/ProfilePage'
+
+/** Redirects any direct /login or /register URL visits to home while triggering the luxury popup modal */
+function AuthPopupRedirect() {
+  const { openLogin } = useStore()
+  useEffect(() => {
+    openLogin()
+  }, [openLogin])
+  return <Navigate to="/" replace />
+}
 
 export function App() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-
   return (
     <div className="relative min-h-screen bg-[#FAF7F0] text-[#06142E] font-sans selection:bg-[#E89E28]/30 selection:text-[#0A1C42]">
-      
-      {/* Lightweight Cursor Glow on Desktop */}
+      {/* Route & Hash Scroll Handler */}
+      <ScrollToTop />
+
+      {/* Lightweight Ambient Cursor Glow on Desktop */}
       <CursorGlow />
 
-      {/* 1. AnnouncementBar */}
+      {/* 1. Announcement Bar */}
       <AnnouncementBar />
 
-      {/* 2. Header */}
+      {/* 2. Main Luxury Header */}
       <Header />
 
-      {/* 3. QuickCategoryStrip */}
-      <QuickCategoryStrip />
-
+      {/* 3. Main Dynamic Content / Multi-Page Routing */}
       <main id="main-content">
-        {/* 4. HeroSlider */}
-        <HeroSlider />
+        <Routes>
+          {/* Home Route */}
+          <Route path="/" element={<HomePage />} />
 
-        {/* 5. ShopEarringCategory */}
-        <ShopEarringCategory />
+          {/* Dedicated Navbar & Category Routes */}
+          <Route path="/collections" element={<CollectionPage forcedCategory="all" />} />
+          <Route path="/collections/:categoryId" element={<CollectionPage />} />
+          <Route path="/category/:categoryId" element={<CollectionPage />} />
+          <Route path="/bangles" element={<CollectionPage forcedCategory="bangles" />} />
+          <Route path="/watches" element={<Navigate to="/bangles" replace />} />
+          <Route path="/necklaces" element={<CollectionPage forcedCategory="necklaces" />} />
+          <Route path="/kids-jewellery" element={<CollectionPage forcedCategory="kids-jewellery" />} />
+          <Route path="/new-arrivals" element={<CollectionPage forcedCategory="new-arrivals" />} />
+          <Route path="/best-sellers" element={<CollectionPage forcedCategory="best-sellers" />} />
+          <Route path="/anti-tarnish" element={<CollectionPage forcedCategory="anti-tarnish" />} />
+          <Route path="/bridal" element={<CollectionPage forcedCategory="bridal" />} />
+          <Route path="/premium" element={<CollectionPage forcedCategory="premium" />} />
 
-        {/* 6. ProductSection "Jhumkas" */}
-        <JhumkasSection />
+          {/* Bespoke & About Pages */}
+          <Route path="/craft-your-style" element={<CraftYourStylePage />} />
+          <Route path="/about" element={<AboutPage />} />
 
-        {/* 7. New Arrivals with dedicated Full-Width Image Banner */}
-        <NewArrivalsSection />
+          {/* Wishlist, Checkout & User Profile Pages */}
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/account" element={<ProfilePage />} />
 
-        {/* 9. PromoBanner 2 (Second, different image & bridal/royal theme) */}
-        <PromoBanner
-          id="promo-2"
-          tag="ROYAL HERITAGE JAIPUR"
-          title="Kundan Watches That Tell Ancient Tales"
-          subtitle="Where horology meets Indian heirloom jadau craftsmanship."
-          description="Designed by Artist Richa, each watch bracelet pairs Japanese quartz accuracy with hand-cut foil-backed Kundan stones, emerald cabochons, and royal elephant motifs."
-          ctaText="Discover Kundan Watches"
-          ctaLink="#new-arrivals-section"
-          image="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80"
-          badgeText="Signature Collection 2026"
-          reverse={true}
-        />
+          {/* Auth & Policies */}
+          <Route path="/login" element={<AuthPopupRedirect />} />
+          <Route path="/register" element={<AuthPopupRedirect />} />
+          <Route path="/policies" element={<PoliciesHubPage />} />
+          <Route path="/policies/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/policies/shipping" element={<ShippingPolicyPage />} />
+          <Route path="/policies/returns" element={<ReturnsPolicyPage />} />
+          <Route path="/policies/terms" element={<TermsPolicyPage />} />
 
-        {/* 10. ProductSection "Artwork By Richa" */}
-        <ArtworkSection />
-
-        {/* 11. ReviewsSection */}
-        <ReviewsSection />
-
-        {/* 12. TrustBadges */}
-        <TrustBadges />
-
-        {/* 13. CraftYourStyle CTA */}
-        <CraftYourStyle />
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
-      {/* 15. Footer */}
+      {/* 4. Luxury Footer */}
       <Footer />
 
-      {/* 16. MobileBottomNav */}
-      <MobileBottomNav onOpenLogin={() => setIsLoginModalOpen(true)} />
+      {/* 5. Mobile Bottom Navigation */}
+      <MobileBottomNav />
 
-      {/* Extra Overlays & Modals */}
+      {/* 6. Drawers, Modals & Alerts */}
       <CartDrawer />
       <QuickViewModal />
+      <LoginModal />
       <ToastContainer />
-      <BackToTop />
-      <LoginModal
-        isOpen={isLoginModalOpen}
-        onClose={() => setIsLoginModalOpen(false)}
-      />
     </div>
   )
 }

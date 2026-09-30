@@ -1,14 +1,14 @@
 import { EarringCategory } from '@/types'
 
 export const quickCategories = [
-  { id: 'new-arrivals', name: 'New Arrivals', icon: 'Sparkles', count: 48 },
-  { id: 'best-sellers', name: 'Best Sellers', icon: 'Flame', count: 64 },
-  { id: 'kids-jewellery', name: "Kid's Jewellery", icon: 'HeartHandshake', count: 24 },
-  { id: 'watches', name: 'Watches', icon: 'Watch', count: 32 },
-  { id: 'anti-tarnish', name: 'Anti-Tarnish', icon: 'ShieldCheck', count: 90 },
-  { id: 'premium', name: 'Premium', icon: 'Crown', count: 45 },
-  { id: 'bridal', name: 'Bridal', icon: 'Gem', count: 56 },
-  { id: 'artwork', name: 'Artwork by Richa', icon: 'Palette', count: 28 },
+  { id: 'new-arrivals', name: 'New Arrivals', icon: 'Sparkles', count: 48, route: '/new-arrivals' },
+  { id: 'best-sellers', name: 'Best Sellers', icon: 'Flame', count: 64, route: '/best-sellers' },
+  { id: 'kids-jewellery', name: "Kid's Jewellery", icon: 'HeartHandshake', count: 24, route: '/kids-jewellery' },
+  { id: 'bangles', name: 'Bangles & Kadas', icon: 'CircleDot', count: 32, route: '/bangles' },
+  { id: 'anti-tarnish', name: 'Anti-Tarnish', icon: 'ShieldCheck', count: 90, route: '/anti-tarnish' },
+  { id: 'premium', name: 'Premium', icon: 'Crown', count: 45, route: '/premium' },
+  { id: 'bridal', name: 'Bridal', icon: 'Gem', count: 56, route: '/bridal' },
+  { id: 'necklaces', name: 'Chokers & Sets', icon: 'Gem', count: 48, route: '/necklaces' },
 ]
 
 export const earringCategories: EarringCategory[] = [
