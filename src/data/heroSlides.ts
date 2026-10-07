@@ -12,7 +12,7 @@ export const heroSlides: HeroSlideData[] = [
     primaryCtaLink: '#jhumkas-section',
     secondaryCtaText: 'Explore Chokers',
     secondaryCtaLink: '#necklaces-section',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1920&q=85'
+    image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1920&q=85'
   },
   {
     id: 'slide-2',

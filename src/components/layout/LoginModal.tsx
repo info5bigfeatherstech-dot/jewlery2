@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 import { useToastStore } from '@/store/useToast'
+import { AureliaLogoMark } from '@/components/ui/AureliaLogo'
 
 interface LoginModalProps {
   isOpen?: boolean
@@ -239,6 +240,9 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 
             {/* Modal Brand Header */}
             <div className="text-center mb-6">
+              <div className="flex justify-center mb-2">
+                <AureliaLogoMark size={44} />
+              </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A1C42]/10 text-[#0A1C42] text-xs font-semibold mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#D49B24]" />
                 <span>Namaste & Welcome</span>

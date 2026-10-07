@@ -99,7 +99,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           onLoad={() => setImageLoaded(true)}
           onError={(e) => {
             setImageLoaded(true)
-            ;(e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80'
+            ;(e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80'
           }}
           className={`w-full h-full object-cover transition-all duration-500 ${
             product.hoverImage && isHovered

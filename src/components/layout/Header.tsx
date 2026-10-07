@@ -12,6 +12,7 @@ import {
   Heart
 } from 'lucide-react'
 import { useStore } from '@/store/useStore'
+import { AureliaLogo } from '@/components/ui/AureliaLogo'
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -59,30 +60,10 @@ export const Header: React.FC = () => {
             {/* Brand Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2 sm:gap-2.5 group text-left select-none shrink-0"
+              className="flex items-center shrink-0"
               aria-label="Aurelia Jewels Home"
             >
-              <div className="relative flex items-center justify-center">
-                <span className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#0A1C42] via-[#1D4ED8] to-[#D49B24] p-[1.5px] shadow-sm flex items-center justify-center">
-                  <span className="w-full h-full bg-[#081734] rounded-full flex items-center justify-center text-[#D49B24] font-serif font-black text-sm">
-                    A
-                  </span>
-                </span>
-              </div>
-
-              <div className="flex flex-col">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-serif text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-[#0A1C42]">
-                    Aurelia
-                  </span>
-                  <span className="font-serif text-sm sm:text-base xl:text-lg font-normal text-[#D49B24] tracking-widest uppercase">
-                    Jewels
-                  </span>
-                </div>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-[#7A584A] font-medium -mt-1 hidden sm:block">
-                  Handcrafted Luxury
-                </span>
-              </div>
+              <AureliaLogo variant="horizontal" theme="light" size="md" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -252,14 +233,14 @@ export const Header: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-[#EADBCE]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-8 h-8 rounded-full bg-[#081734] text-[#D49B24] flex items-center justify-center font-serif font-black text-sm">
-                      A
-                    </span>
-                    <span className="font-serif font-bold text-lg text-[#0A1C42]">
-                      Aurelia <span className="text-[#D49B24] font-normal uppercase text-sm tracking-wider">Jewels</span>
-                    </span>
-                  </div>
+                  <Link
+                    to="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center"
+                    aria-label="Aurelia Jewels Home"
+                  >
+                    <AureliaLogo variant="horizontal" theme="light" size="sm" showTagline={false} />
+                  </Link>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-[#0A1C42] hover:bg-[#F4EDE0] rounded-full"

@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons'
 import { useStore } from '@/store/useStore'
+import { AureliaLogo } from '@/components/ui/AureliaLogo'
 
 export const Footer: React.FC = () => {
   const { openLogin } = useStore()
@@ -125,14 +126,9 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Brand & Mission (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="w-9 h-9 rounded-full bg-[#D49B24] text-[#06142E] flex items-center justify-center font-serif font-black text-sm">
-                A
-              </span>
-              <span className="font-serif text-2xl font-bold text-white">
-                Aurelia <span className="text-[#D49B24] font-normal uppercase text-lg tracking-wider">Jewels</span>
-              </span>
-            </div>
+            <Link to="/" className="inline-block" aria-label="Aurelia Jewels Home">
+              <AureliaLogo variant="horizontal" theme="dark" size="md" />
+            </Link>
 
             <p className="text-xs sm:text-sm text-[#EADFCB] leading-relaxed font-light">
               Aurelia Jewels celebrates the beauty of royal Indian heritage and modern sophistication. Handcrafted by master artisans, our collections feature 100% anti-tarnish plating, uncut Kundan stones, and timeless original artistry.

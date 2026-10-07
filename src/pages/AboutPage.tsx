@@ -13,6 +13,7 @@ import {
   Phone,
   Mail
 } from 'lucide-react'
+import { AureliaLogo } from '@/components/ui/AureliaLogo'
 
 export const AboutPage: React.FC = () => {
   return (
@@ -33,19 +34,25 @@ export const AboutPage: React.FC = () => {
           <div className="rainbow-line absolute top-0 left-0 right-0 h-1.5" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#D49B24]/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-[#D49B24] text-xs font-semibold uppercase tracking-wider border border-[#D49B24]/30 backdrop-blur-md">
-              <Crown className="w-3.5 h-3.5" />
-              <span>Royal Indian Craftsmanship Since 2018</span>
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="max-w-2xl space-y-4">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-[#D49B24] text-xs font-semibold uppercase tracking-wider border border-[#D49B24]/30 backdrop-blur-md">
+                <Crown className="w-3.5 h-3.5" />
+                <span>Royal Indian Craftsmanship Since 2018</span>
+              </div>
+
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                The Soul of Indian Jewellery Heritage
+              </h1>
+
+              <p className="text-sm sm:text-base text-[#EADFCB] font-light leading-relaxed">
+                Born from the historic lanes of Johari Bazaar in Jaipur, Aurelia Jewels reimagines centuries of royal Rajputana ornament craftsmanship for modern festive celebrations across India and the globe.
+              </p>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              The Soul of Indian Jewellery Heritage
-            </h1>
-
-            <p className="text-sm sm:text-base text-[#EADFCB] font-light leading-relaxed">
-              Born from the historic lanes of Johari Bazaar in Jaipur, Aurelia Jewels reimagines centuries of royal Rajputana ornament craftsmanship for modern festive celebrations across India and the globe.
-            </p>
+            <div className="hidden md:flex flex-col items-center justify-center p-6 rounded-3xl bg-white/5 border border-[#D49B24]/30 backdrop-blur-md shrink-0">
+              <AureliaLogo variant="stacked" theme="dark" size="lg" />
+            </div>
           </div>
         </div>
 
@@ -84,7 +91,7 @@ export const AboutPage: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D49B24]/40">
               <img
-                src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1200&q=80"
                 alt="Aurelia Jewels Heritage"
                 className="w-full h-full object-cover"
               />

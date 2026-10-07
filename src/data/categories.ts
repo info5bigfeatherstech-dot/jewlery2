@@ -43,7 +43,7 @@ export const earringCategories: EarringCategory[] = [
   {
     id: 'stud',
     name: 'Stud',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80',
     itemCount: 65,
     description: 'Bow motifs with sparkling crystal drops'
   },

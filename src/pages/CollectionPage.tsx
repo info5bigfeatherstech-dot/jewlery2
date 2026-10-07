@@ -35,14 +35,14 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ forcedCategory }
       title: 'Imperial Indian Jewellery Collections',
       subtitle: 'Handcrafted festive jhumkas, royal Kundan bangles, and imperial bridal chokers dipped in 22K micro gold polish.',
       tag: 'Complete Heirloom Catalog',
-      bannerImg: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1600&q=80',
+      bannerImg: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1600&q=80',
       filterFn: () => true
     },
     collections: {
       title: 'Imperial Indian Jewellery Collections',
       subtitle: 'Handcrafted festive jhumkas, royal Kundan bangles, and imperial bridal chokers dipped in 22K micro gold polish.',
       tag: 'Complete Heirloom Catalog',
-      bannerImg: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1600&q=80',
+      bannerImg: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1600&q=80',
       filterFn: () => true
     },
     jhumkas: {
@@ -115,7 +115,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ forcedCategory }
       title: 'Lifetime Anti-Tarnish Guarantee Collection',
       subtitle: 'Engineered with 22K micro gold electro-deposition to resist sweat, water, and humidity across festive wedding seasons.',
       tag: '100% Tarnish-Free Plating',
-      bannerImg: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1600&q=80',
+      bannerImg: 'https://images.unsplash.com/photo-1611591475152-47831c367468?auto=format&fit=crop&w=1600&q=80',
       filterFn: () => true
     },
     bridal: {

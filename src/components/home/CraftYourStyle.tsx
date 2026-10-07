@@ -87,7 +87,7 @@ export const CraftYourStyle: React.FC = () => {
               className="absolute left-4 top-4 w-56 sm:w-64 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10 -rotate-6"
             >
               <img
-                src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=700&q=80"
+                src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=80"
                 alt="Bridal Kundan Set"
                 className="w-full h-full object-cover"
               />
