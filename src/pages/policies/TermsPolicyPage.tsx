@@ -6,7 +6,7 @@ export const TermsPolicyPage: React.FC = () => {
   return (
     <PolicyLayout
       title="Terms of Service"
-      subtitle="Craftsmanship authenticity standards, product care obligations, and user agreements for Aurelia Jewels."
+      subtitle="Craftsmanship authenticity standards, product care obligations, and user agreements for glaMISTERa."
     >
       <div className="space-y-6 text-sm leading-relaxed text-[#4A3B32]">
         
@@ -16,7 +16,7 @@ export const TermsPolicyPage: React.FC = () => {
             <h2>1. Agreement to Terms</h2>
           </div>
           <p>
-            By accessing or browsing this website (aureliajewels.com) or purchasing any handcrafted jewellery, Kundan bangles, or bridal sets, you agree to be bound by these Terms of Service and all incorporated policies. If you do not agree with any provision, please discontinue using the service.
+            By accessing or browsing this website (glamistera.com) or purchasing any handcrafted jewellery, Kundan bangles, or bridal sets, you agree to be bound by these Terms of Service and all incorporated policies. If you do not agree with any provision, please discontinue using the service.
           </p>
         </section>
 
@@ -26,7 +26,7 @@ export const TermsPolicyPage: React.FC = () => {
             <h2>2. Handcrafted Jewellery Authenticity & Finishes</h2>
           </div>
           <p>
-            Aurelia Jewels pieces are handcrafted by master artisans utilizing traditional Indian jewellery techniques:
+            glaMISTERa pieces are handcrafted by master artisans utilizing traditional Indian jewellery techniques:
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
             <li><strong>Jaipur Kundan & Jadau:</strong> Features foil-backed uncut glass stones hand-set into brass alloy frames, celebrating historic Rajasthani jewellery traditions.</li>

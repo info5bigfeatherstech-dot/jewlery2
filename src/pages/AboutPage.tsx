@@ -4,7 +4,6 @@ import {
   Sparkles,
   ChevronRight,
   ShieldCheck,
-  CheckCircle2,
   Heart,
   Crown,
   Gem,
@@ -13,7 +12,7 @@ import {
   Phone,
   Mail
 } from 'lucide-react'
-import { AureliaLogo } from '@/components/ui/AureliaLogo'
+import { GlamisteraLogo } from '@/components/ui/GlamisteraLogo'
 
 export const AboutPage: React.FC = () => {
   return (
@@ -26,7 +25,7 @@ export const AboutPage: React.FC = () => {
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <span className="font-semibold text-[#0A1C42]">About Aurelia Jewels</span>
+          <span className="font-semibold text-[#0A1C42]">About glaMISTERa</span>
         </nav>
 
         {/* Hero Banner */}
@@ -38,20 +37,20 @@ export const AboutPage: React.FC = () => {
             <div className="max-w-2xl space-y-4">
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-[#D49B24] text-xs font-semibold uppercase tracking-wider border border-[#D49B24]/30 backdrop-blur-md">
                 <Crown className="w-3.5 h-3.5" />
-                <span>Royal Indian Craftsmanship Since 2018</span>
+                <span>Royal Craftsmanship & Modern Elegance</span>
               </div>
 
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-                The Soul of Indian Jewellery Heritage
+                Jewellery for Every You — For Her & For Him
               </h1>
 
               <p className="text-sm sm:text-base text-[#EADFCB] font-light leading-relaxed">
-                Born from the historic lanes of Johari Bazaar in Jaipur, Aurelia Jewels reimagines centuries of royal Rajputana ornament craftsmanship for modern festive celebrations across India and the globe.
+                Born from passion for royal ornamentation and modern self-expression, glaMISTERa crafts heirloom luxury jewellery designed to celebrate individuality. From ceremonial jhumkas to regal kada bracelets, every piece tells a story of royalty, confidence, and devotion.
               </p>
             </div>
 
             <div className="hidden md:flex flex-col items-center justify-center p-6 rounded-3xl bg-white/5 border border-[#D49B24]/30 backdrop-blur-md shrink-0">
-              <AureliaLogo variant="stacked" theme="dark" size="lg" />
+              <GlamisteraLogo variant="stacked" theme="dark" size="lg" />
             </div>
           </div>
         </div>
@@ -65,21 +64,21 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#06142E] leading-tight">
-              Preserving the Art of Jaipur Kundan & Jadau
+              Preserving Royal Indian Artistry with Contemporary Flair
             </h2>
 
             <p>
-              In an era of mass-produced plastic accessories, Aurelia Jewels remains steadfast in honoring the slow, meditative art of handmade Indian jewellery. Every bell jhumka, foil-backed Kundan kada, and multi-layered Rani Haar is meticulously carved, polished, and hand-strung by fifth-generation hereditary karigars.
+              In an era of mass-produced plastic accessories, glaMISTERa remains steadfast in honoring the slow, meditative art of handmade Indian jewellery. Every bell jhumka, foil-backed Kundan kada, and multi-layered statement piece is meticulously carved, polished, and hand-strung by master hereditary karigars.
             </p>
 
             <p>
-              We believe royal heritage should not be locked inside bank vaults. By pairing authentic Rajasthani craftsmanship with our signature 22K micro gold electro-deposition and anti-tarnish protective sealing, our pieces deliver heirloom aesthetic brilliance with feather-light everyday comfort.
+              We believe royal elegance belongs to everyone. By pairing authentic craftsmanship with our signature 22K micro gold electro-deposition and anti-tarnish protective sealing, our pieces deliver heirloom aesthetic brilliance with feather-light everyday comfort.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-3">
               <div className="p-4 rounded-2xl bg-white border border-[#EADBCE]">
                 <div className="font-serif text-2xl font-bold text-[#0A1C42]">25,000+</div>
-                <div className="text-xs text-[#7A584A] mt-0.5">Festive Brides Adorned</div>
+                <div className="text-xs text-[#7A584A] mt-0.5">Festive Patrons Adorned</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-[#EADBCE]">
                 <div className="font-serif text-2xl font-bold text-[#0A1C42]">100%</div>
@@ -92,7 +91,7 @@ export const AboutPage: React.FC = () => {
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D49B24]/40">
               <img
                 src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1200&q=80"
-                alt="Aurelia Jewels Heritage"
+                alt="glaMISTERa Heritage"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -103,10 +102,10 @@ export const AboutPage: React.FC = () => {
         <div className="mb-16">
           <div className="text-center max-w-xl mx-auto mb-10">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#06142E]">
-              The Four Aurelia Pillars
+              The Four glaMISTERa Pillars
             </h2>
             <p className="text-xs sm:text-sm text-[#7A584A] mt-1.5">
-              The promises that accompany every velvet jewel box sent from our atelier.
+              The promises that accompany every jewel box sent from our atelier.
             </p>
           </div>
 
@@ -131,7 +130,7 @@ export const AboutPage: React.FC = () => {
               <Heart className="w-8 h-8 text-[#EC4899]" />
               <h3 className="font-serif text-base font-bold text-[#06142E]">Hypoallergenic Core</h3>
               <p className="text-xs text-[#7A584A] leading-relaxed">
-                100% lead and nickel-free brass alloys, completely gentle on sensitive skin during long wedding hours.
+                100% lead and nickel-free brass alloys, completely gentle on sensitive skin during long celebratory hours.
               </p>
             </div>
 
@@ -139,7 +138,7 @@ export const AboutPage: React.FC = () => {
               <Award className="w-8 h-8 text-[#163B7A]" />
               <h3 className="font-serif text-base font-bold text-[#06142E]">Fair Artisan Wages</h3>
               <p className="text-xs text-[#7A584A] leading-relaxed">
-                Direct atelier partnerships ensuring sustainable livelihoods for Jaipur gemstone hereditary craftsmen.
+                Direct atelier partnerships ensuring sustainable livelihoods for hereditary gemstone craftsmen.
               </p>
             </div>
           </div>
@@ -150,7 +149,7 @@ export const AboutPage: React.FC = () => {
           <div className="max-w-2xl space-y-4">
             <h3 className="font-serif text-2xl font-bold text-white">Visit Our Heritage Ateliers</h3>
             <p className="text-xs sm:text-sm text-[#EADFCB] font-light leading-relaxed">
-              Experience the craftsmanship in person or connect directly with our master designers for bridal consultations.
+              Experience the craftsmanship in person or connect directly with our master designers for styling consultations.
             </p>
 
             <div className="space-y-2 pt-2 text-xs text-[#EADFCB]">
@@ -164,7 +163,7 @@ export const AboutPage: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#D49B24] shrink-0" />
-                <span>concierge@aureliajewels.com</span>
+                <span>concierge@glamistera.com</span>
               </div>
             </div>
           </div>
@@ -174,3 +173,5 @@ export const AboutPage: React.FC = () => {
     </div>
   )
 }
+
+export default AboutPage

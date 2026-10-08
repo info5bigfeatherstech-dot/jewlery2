@@ -27,7 +27,7 @@ export const CraftYourStylePage: React.FC = () => {
     if (!name || !phone) return
 
     const whatsappText = encodeURIComponent(
-      `Namaste Aurelia Jewels! I'd like to book a bespoke consultation.\nName: ${name}\nPhone: +91 ${phone}\nCategory: ${category}\nLehenga Color/Tone: ${colorTone}\nNotes: ${notes || 'Looking for festive lehenga matching'}`
+      `Namaste glaMISTERa! I'd like to book a bespoke consultation.\nName: ${name}\nPhone: +91 ${phone}\nCategory: ${category}\nLehenga Color/Tone: ${colorTone}\nNotes: ${notes || 'Looking for festive lehenga matching'}`
     )
 
     addToast({

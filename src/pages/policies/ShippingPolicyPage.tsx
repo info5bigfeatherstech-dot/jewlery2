@@ -32,7 +32,7 @@ export const ShippingPolicyPage: React.FC = () => {
             <h2>1. Order Processing & Dispatch Timelines</h2>
           </div>
           <p>
-            Every piece at Aurelia Jewels is carefully inspected by our master gemologists prior to dispatch:
+            Every piece at glaMISTERa is carefully inspected by our master gemologists prior to dispatch:
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
             <li><strong>Ready-to-Ship Pieces (Jhumkas, Bangles, Earrings):</strong> Dispatched within 24 to 36 hours of payment confirmation.</li>

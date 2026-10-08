@@ -54,7 +54,7 @@ export const LoginPage: React.FC = () => {
       setIsLoading(false)
       setIsSuccess(true)
       addToast({
-        title: 'Welcome to Aurelia Privé!',
+        title: 'Welcome to glaMISTERa Privé!',
         description: 'Successfully verified and logged in',
         type: 'success'
       })
@@ -72,7 +72,7 @@ export const LoginPage: React.FC = () => {
       setIsLoading(false)
       setIsSuccess(true)
       addToast({
-        title: 'Welcome to Aurelia Privé!',
+        title: 'Welcome to glaMISTERa Privé!',
         description: 'Signed in to your collector profile',
         type: 'success'
       })
@@ -83,7 +83,7 @@ export const LoginPage: React.FC = () => {
   }
 
   const handleDemoLogin = () => {
-    setEmail('meera.sharma@aureliajewels.com')
+    setEmail('meera.sharma@glamistera.com')
     setPassword('RoyalJewels2026')
     setAuthMethod('password')
     setIsLoading(true)
@@ -129,7 +129,7 @@ export const LoginPage: React.FC = () => {
               <div className="mb-8">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A1C42]/10 text-[#0A1C42] text-xs font-semibold uppercase tracking-wider mb-2.5">
                   <Sparkles className="w-3.5 h-3.5 text-[#D49B24]" />
-                  <span>Aurelia Privé Club</span>
+                  <span>glaMISTERa Privé Club</span>
                 </div>
                 <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#06142E] tracking-tight">
                   Sign In to Your Account
@@ -176,7 +176,7 @@ export const LoginPage: React.FC = () => {
                 >
                   <CheckCircle2 className="w-16 h-16 text-[#10B981] mx-auto animate-bounce" />
                   <h3 className="font-serif text-2xl font-bold text-[#06142E]">
-                    Welcome to Aurelia Jewels!
+                    Welcome to glaMISTERa!
                   </h3>
                   <p className="text-xs sm:text-sm text-[#7A584A]">
                     Redirecting you to your royal collection...
@@ -345,7 +345,7 @@ export const LoginPage: React.FC = () => {
 
             {/* Bottom Register Switcher */}
             <div className="mt-8 pt-5 border-t border-[#EADBCE] text-center text-xs text-[#7A584A]">
-              Don&apos;t have an Aurelia account yet?{' '}
+              Don&apos;t have a glaMISTERa account yet?{' '}
               <Link
                 to="/register"
                 className="font-bold text-[#0A1C42] hover:text-[#163B7A] underline ml-1 cursor-pointer"
@@ -366,7 +366,7 @@ export const LoginPage: React.FC = () => {
               </div>
 
               <h2 className="font-serif text-2xl font-bold text-white mb-2 leading-snug">
-                The Aurelia Privé Experience
+                The glaMISTERa Privé Experience
               </h2>
               <p className="text-xs text-[#EADFCB] leading-relaxed mb-8 font-light">
                 Sign in to access bespoke Indian craftsmanship advantages preserved exclusively for our collectors.

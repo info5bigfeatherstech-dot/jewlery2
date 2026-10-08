@@ -14,7 +14,7 @@ export const ReturnsPolicyPage: React.FC = () => {
         <div className="p-5 rounded-2xl bg-[#10B981]/10 border border-[#10B981]/30 flex items-start gap-3.5">
           <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-[#06142E]">
-            <strong className="text-[#0A1C42]">The 7-Day Aurelia Promise:</strong> If your jewellery does not match your festive expectations, or if you require an alternative silhouette or wrist size, we provide hassle-free exchanges within 7 calendar days of delivery.
+            <strong className="text-[#0A1C42]">The 7-Day glaMISTERa Promise:</strong> If your jewellery does not match your festive expectations, or if you require an alternative silhouette or wrist size, we provide hassle-free exchanges within 7 calendar days of delivery.
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export const ReturnsPolicyPage: React.FC = () => {
           </div>
           <ol className="list-decimal pl-5 space-y-2 text-xs sm:text-sm">
             <li>
-              <strong>Initiate Request:</strong> Message our WhatsApp concierge (+91 88264 33922) or email <a href="mailto:concierge@aureliajewels.com" className="text-[#163B7A] font-bold underline">concierge@aureliajewels.com</a> with your Order ID.
+              <strong>Initiate Request:</strong> Message our WhatsApp concierge (+91 88264 33922) or email <a href="mailto:concierge@glamistera.com" className="text-[#163B7A] font-bold underline">concierge@glamistera.com</a> with your Order ID.
             </li>
             <li>
               <strong>Doorstep Reverse Pickup:</strong> Our team schedules a reverse courier pickup from your home address via Blue Dart or Delhivery.

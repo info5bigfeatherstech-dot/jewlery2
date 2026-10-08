@@ -84,7 +84,7 @@ export const ProfilePage: React.FC = () => {
       email: profileEmail,
       isVip: true,
       memberSince: user?.memberSince || 'August 2024',
-      tier: user?.tier || 'Aurelia Privé Gold Member'
+      tier: user?.tier || 'glaMISTERa Privé Gold Member'
     })
     addToast({
       title: 'Profile Updated',
@@ -144,7 +144,7 @@ export const ProfilePage: React.FC = () => {
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#D49B24]/15 text-[#D49B24] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">
                   <Sparkles className="w-3 h-3" />
-                  <span>{user?.tier || 'Aurelia Privé Gold Member'}</span>
+                  <span>{user?.tier || 'glaMISTERa Privé Gold Member'}</span>
                 </div>
                 <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#06142E]">
                   {profileName}
@@ -537,7 +537,7 @@ export const ProfilePage: React.FC = () => {
                 >
                   <div className="pb-3 border-b border-[#EADBCE]">
                     <h2 className="font-serif text-xl font-bold text-[#06142E]">
-                      Aurelia Privé Rewards & Coupons
+                      glaMISTERa Privé Rewards & Coupons
                     </h2>
                     <p className="text-xs text-[#7A584A] mt-0.5">
                       Redeem these exclusive member codes at checkout for instant festive discounts.

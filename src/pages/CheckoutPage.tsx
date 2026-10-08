@@ -71,7 +71,7 @@ export const CheckoutPage: React.FC = () => {
         description: '10% Festive discount has been applied to your order.',
         type: 'success'
       })
-    } else if (code === 'AURELIA20') {
+    } else if (code === 'GLAMISTERA20' || code === 'AURELIA20') {
       setIsCouponApplied(true)
       setCouponDiscountPercent(20)
       addToast({
@@ -272,7 +272,7 @@ export const CheckoutPage: React.FC = () => {
               <span>256-Bit SSL Insured Checkout</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#06142E] tracking-tight">
-              Aurelia Privé Checkout
+              glaMISTERa Privé Checkout
             </h1>
           </div>
 

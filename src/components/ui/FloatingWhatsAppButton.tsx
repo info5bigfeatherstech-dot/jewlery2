@@ -6,7 +6,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
   return (
     <div className="fixed bottom-20 md:bottom-7 right-5 z-40">
       <motion.a
-        href="https://wa.me/918826433922?text=Namaste!%20I'm%20interested%20in%20handcrafted%20luxury%20jewellery%20from%20Aurelia%20Jewels."
+        href="https://wa.me/918826433922?text=Namaste!%20I'm%20interested%20in%20handcrafted%20luxury%20jewellery%20from%20glaMISTERa."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with our jewellery styling expert on WhatsApp"

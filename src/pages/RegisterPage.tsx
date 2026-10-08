@@ -40,7 +40,7 @@ export const RegisterPage: React.FC = () => {
       setIsLoading(false)
       setIsSuccess(true)
       addToast({
-        title: 'Aurelia Privé Account Created!',
+        title: 'glaMISTERa Privé Account Created!',
         description: 'Welcome coupon code RANG10 active for 10% off',
         type: 'success'
       })
@@ -76,7 +76,7 @@ export const RegisterPage: React.FC = () => {
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <span className="font-semibold text-[#0A1C42]">Join Aurelia Privé</span>
+          <span className="font-semibold text-[#0A1C42]">Join glaMISTERa Privé</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
@@ -270,7 +270,7 @@ export const RegisterPage: React.FC = () => {
 
             {/* Bottom Login Switcher */}
             <div className="mt-8 pt-5 border-t border-[#EADBCE] text-center text-xs text-[#7A584A]">
-              Already have an Aurelia account?{' '}
+              Already have a glaMISTERa account?{' '}
               <Link
                 to="/login"
                 className="font-bold text-[#0A1C42] hover:text-[#163B7A] underline ml-1 cursor-pointer"
@@ -301,7 +301,7 @@ export const RegisterPage: React.FC = () => {
               </div>
 
               <h2 className="font-serif text-2xl font-bold text-white mb-2 leading-snug">
-                Why Join Aurelia Privé?
+                Why Join glaMISTERa Privé?
               </h2>
               <p className="text-xs text-[#EADFCB] leading-relaxed mb-6 font-light">
                 Handcrafted jewellery crafted to be passed down through generations.

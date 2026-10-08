@@ -77,7 +77,7 @@ export const PolicyLayout: React.FC<PolicyLayoutProps> = ({
           <div className="relative z-10 max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#D49B24] text-xs font-semibold uppercase tracking-wider mb-3 border border-[#D49B24]/30">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Aurelia Jewels Customer Trust</span>
+              <span>glaMISTERa Customer Trust</span>
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">
@@ -150,7 +150,7 @@ export const PolicyLayout: React.FC<PolicyLayoutProps> = ({
 
               <div className="space-y-2 pt-2 text-xs font-semibold">
                 <a
-                  href="https://wa.me/918826433922?text=Namaste!%20I%20have%20a%20question%20regarding%20Aurelia%20Jewels%20policies."
+                  href="https://wa.me/918826433922?text=Namaste!%20I%20have%20a%20question%20regarding%20glaMISTERa%20policies."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#EADBCE] text-[#0A1C42] hover:border-[#D49B24] transition-colors"
@@ -160,11 +160,11 @@ export const PolicyLayout: React.FC<PolicyLayoutProps> = ({
                 </a>
 
                 <a
-                  href="mailto:concierge@aureliajewels.com"
+                  href="mailto:concierge@glamistera.com"
                   className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#EADBCE] text-[#0A1C42] hover:border-[#D49B24] transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[#D49B24]" />
-                  <span>concierge@aureliajewels.com</span>
+                  <span>concierge@glamistera.com</span>
                 </a>
               </div>
             </div>

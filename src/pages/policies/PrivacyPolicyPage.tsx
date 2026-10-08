@@ -6,7 +6,7 @@ export const PrivacyPolicyPage: React.FC = () => {
   return (
     <PolicyLayout
       title="Privacy Policy"
-      subtitle="How Aurelia Jewels safeguards your personal identity, payment security, and bespoke consultation data."
+      subtitle="How glaMISTERa safeguards your personal identity, payment security, and bespoke consultation data."
     >
       <div className="space-y-6 text-sm leading-relaxed text-[#4A3B32]">
         
@@ -16,7 +16,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             <h2>1. Commitment to Your Privacy</h2>
           </div>
           <p>
-            At Aurelia Jewels (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we recognize the trust you place in us when sharing your personal information for handcrafted jewellery purchases and bespoke bridal styling. This Privacy Policy outlines our transparent protocols for gathering, securing, and processing your information when you visit our website or interact with our atelier concierge.
+            At glaMISTERa (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we recognize the trust you place in us when sharing your personal information for handcrafted jewellery purchases and bespoke bridal styling. This Privacy Policy outlines our transparent protocols for gathering, securing, and processing your information when you visit our website or interact with our atelier concierge.
           </p>
         </section>
 
@@ -26,7 +26,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             <h2>2. Information We Collect</h2>
           </div>
           <p>
-            To deliver an authentic luxury experience, we may collect the following information when you place an order, create an Aurelia Privé account, or request bespoke jewellery customization:
+            To deliver an authentic luxury experience, we may collect the following information when you place an order, create a glaMISTERa Privé account, or request bespoke jewellery customization:
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm">
             <li><strong>Contact Details:</strong> Full name, shipping/billing address, mobile phone number, and email address.</li>
@@ -72,7 +72,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             <h2>5. Your Rights & Data Deletion</h2>
           </div>
           <p>
-            You retain complete control over your personal data. At any time, you may request a copy of your stored records or request complete deletion of your customer profile by emailing us at <a href="mailto:concierge@aureliajewels.com" className="text-[#163B7A] font-bold underline">concierge@aureliajewels.com</a>.
+            You retain complete control over your personal data. At any time, you may request a copy of your stored records or request complete deletion of your customer profile by emailing us at <a href="mailto:concierge@glamistera.com" className="text-[#163B7A] font-bold underline">concierge@glamistera.com</a>.
           </p>
         </section>
 

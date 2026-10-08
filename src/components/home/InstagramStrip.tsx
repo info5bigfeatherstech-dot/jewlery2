@@ -14,7 +14,7 @@ export const InstagramStrip: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A1C42]/10 text-[#0A1C42] text-xs font-semibold uppercase tracking-wider mb-2">
               <InstagramIcon className="w-3.5 h-3.5 text-[#EC4899]" />
-              <span>@aurelia.jewels On Instagram</span>
+              <span>@glamistera On Instagram</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#06142E] tracking-tight">
               Behind The Scenes & Styling Diwas
@@ -22,13 +22,13 @@ export const InstagramStrip: React.FC = () => {
           </div>
 
           <a
-            href="https://www.instagram.com/aurelia.jewels"
+            href="https://www.instagram.com/glamistera"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D81B60] to-[#8E24AA] hover:from-[#C2185B] hover:to-[#7B1FA2] text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-md transition-all group"
           >
             <InstagramIcon className="w-4 h-4" />
-            <span>Follow @aurelia.jewels</span>
+            <span>Follow @glamistera</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
@@ -49,7 +49,7 @@ export const InstagramStrip: React.FC = () => {
             >
               <img
                 src={post.image}
-                alt="Instagram post from Aurelia Jewels"
+                alt="Instagram post from glaMISTERa"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />

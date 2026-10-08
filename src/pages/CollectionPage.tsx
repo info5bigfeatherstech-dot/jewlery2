@@ -130,7 +130,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ forcedCategory }
         p.title.toLowerCase().includes('kundan')
     },
     premium: {
-      title: 'Aurelia Haute Joaillerie (Premium)',
+      title: 'glaMISTERa Haute Joaillerie (Premium)',
       subtitle: 'Masterpiece collector editions handcrafted with uncut Polki, authentic Meenakari reverse enameling, and heavy 22K gold polish.',
       tag: 'Collector Editions',
       bannerImg: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1600&q=80',

@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons'
 import { useStore } from '@/store/useStore'
-import { AureliaLogo } from '@/components/ui/AureliaLogo'
+import { GlamisteraLogo } from '@/components/ui/GlamisteraLogo'
 
 export const Footer: React.FC = () => {
   const { openLogin } = useStore()
@@ -126,17 +126,17 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Brand & Mission (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="inline-block" aria-label="Aurelia Jewels Home">
-              <AureliaLogo variant="horizontal" theme="dark" size="md" />
+            <Link to="/" className="inline-block" aria-label="glaMISTERa Home">
+              <GlamisteraLogo variant="horizontal" theme="dark" size="md" />
             </Link>
 
             <p className="text-xs sm:text-sm text-[#EADFCB] leading-relaxed font-light">
-              Aurelia Jewels celebrates the beauty of royal Indian heritage and modern sophistication. Handcrafted by master artisans, our collections feature 100% anti-tarnish plating, uncut Kundan stones, and timeless original artistry.
+              glaMISTERa celebrates the beauty of royal Indian heritage and modern sophistication. Handcrafted by master artisans, our collections feature 100% anti-tarnish plating, uncut Kundan stones, and timeless original artistry for her and for him.
             </p>
 
             <div className="pt-2 flex items-center gap-3">
               <a
-                href="https://www.instagram.com/aurelia.jewels"
+                href="https://www.instagram.com/glamistera"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#D49B24] hover:text-[#06142E] flex items-center justify-center transition-colors text-white"
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-xs text-[#EADFCB]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#D49B24] flex-shrink-0 mt-0.5" />
-                <span>Aurelia Jewellery Atelier, Johari Bazaar & NCR Heritage Studio, India</span>
+                <span>glaMISTERa Jewellery Atelier, Johari Bazaar & NCR Heritage Studio, India</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#D49B24] flex-shrink-0" />
@@ -221,7 +221,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#D49B24] flex-shrink-0" />
-                <span>concierge@aureliajewels.com</span>
+                <span>concierge@glamistera.com</span>
               </div>
               <div className="flex items-center gap-2.5 pt-2">
                 <ShieldCheck className="w-4 h-4 text-[#10B981] flex-shrink-0" />
@@ -235,7 +235,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits & Payment Badges */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>
-            © {new Date().getFullYear()} Aurelia Jewels. Handcrafted with love in India.
+            © {new Date().getFullYear()} glaMISTERa. Handcrafted with love in India.
           </p>
 
           {/* Accepted Indian Payment Modes */}

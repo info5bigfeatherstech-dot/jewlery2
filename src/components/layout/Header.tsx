@@ -12,7 +12,7 @@ import {
   Heart
 } from 'lucide-react'
 import { useStore } from '@/store/useStore'
-import { AureliaLogo } from '@/components/ui/AureliaLogo'
+import { GlamisteraLogo } from '@/components/ui/GlamisteraLogo'
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -61,9 +61,9 @@ export const Header: React.FC = () => {
             <Link
               to="/"
               className="flex items-center shrink-0"
-              aria-label="Aurelia Jewels Home"
+              aria-label="glaMISTERa Home"
             >
-              <AureliaLogo variant="horizontal" theme="light" size="md" />
+              <GlamisteraLogo variant="horizontal" theme="light" size="md" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -237,9 +237,9 @@ export const Header: React.FC = () => {
                     to="/"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center"
-                    aria-label="Aurelia Jewels Home"
+                    aria-label="glaMISTERa Home"
                   >
-                    <AureliaLogo variant="horizontal" theme="light" size="sm" showTagline={false} />
+                    <GlamisteraLogo variant="horizontal" theme="light" size="sm" showTagline={false} />
                   </Link>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -311,7 +311,7 @@ export const Header: React.FC = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block py-2.5 px-3 rounded-xl hover:bg-[#FAF2E6] text-sm text-[#7A584A]"
                   >
-                    About Aurelia Jewels
+                    About glaMISTERa
                   </Link>
                   <Link
                     to="/policies/shipping"

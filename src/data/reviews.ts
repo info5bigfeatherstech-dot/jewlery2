@@ -51,7 +51,7 @@ export const customerReviewsRow1: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '2 weeks ago',
-    text: 'Packaging was royal with a handwritten card from Richa and extra ear-backs. Aurelia Jewels has become my default brand for all festive presents.',
+    text: 'Packaging was royal with a handwritten card from Richa and extra ear-backs. glaMISTERa has become my default brand for all festive presents.',
     productTitle: 'Green 3-layered Jhumka',
     verified: true,
     location: 'Pune, Maharashtra'
@@ -87,7 +87,7 @@ export const customerReviewsRow2: Review[] = [
     avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80',
     rating: 5,
     timeAgo: '1 week ago',
-    text: 'Ordered 12 jhumkas as return gifts for my Mehendi ceremony. Aurelia Jewels delivered within 3 days with custom satin pouches. All my bridesmaids went gaga!',
+    text: 'Ordered 12 jhumkas as return gifts for my Mehendi ceremony. glaMISTERa delivered within 3 days with custom satin pouches. All my bridesmaids went gaga!',
     productTitle: 'Antique Golden Lotus Jhumka',
     verified: true,
     location: 'Jaipur, Rajasthan'

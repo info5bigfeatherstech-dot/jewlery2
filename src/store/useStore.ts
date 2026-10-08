@@ -54,11 +54,11 @@ export const useStore = create<CartStore>((set, get) => ({
     email: 'ananya.sharma@example.com',
     isVip: true,
     memberSince: 'August 2024',
-    tier: 'Aurelia Privé Gold Member'
+    tier: 'glaMISTERa Privé Gold Member'
   },
   orders: [
     {
-      id: 'AUR-2026-94812',
+      id: 'GLAM-2026-94812',
       date: '28 Sep 2026',
       status: 'Delivered',
       subtotal: 3899,
