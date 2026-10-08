@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="relative z-40 w-full bg-[#FAF7F0] py-3.5 sm:py-4 border-b border-[#EADBCE]/60">
+      <header className="relative z-40 w-full bg-[#FAF7F0] py-2 sm:py-2.5 border-b border-[#EADBCE]/60">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 lg:gap-3 xl:gap-6">
             

@@ -1,5 +1,5 @@
 import React from 'react'
-import glamisteraLogoImg from '@/assets/glaMIStera LOGO.png'
+import glamisteraLogoImg from '@/assets/glamistera-logo-transparent.png'
 
 export interface GlamisteraLogoProps {
   /**
@@ -13,13 +13,17 @@ export interface GlamisteraLogoProps {
   variant?: 'horizontal' | 'stacked' | 'mark' | 'badge' | 'full'
   /**
    * Color theme:
-   * - 'light': For light cream background (#FAF7F0) / white
-   * - 'dark': For dark navy background (#051025) in Footer
+   * - 'light': Transparent on light background (#FAF7F0) / white
+   * - 'dark': Transparent with luxury backlight / framing for dark background (#051025) in Footer
    * - 'gold': Gold accent framing
    */
   theme?: 'light' | 'dark' | 'gold'
   /**
-   * Standard sizing presets
+   * Standard sizing presets:
+   * - 'sm': Mobile / compact
+   * - 'md': Default navbar (large & prominent)
+   * - 'lg': Featured showcase
+   * - 'xl': Extra large hero display
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
   /**
@@ -36,31 +40,32 @@ export interface GlamisteraLogoProps {
   animated?: boolean
 }
 
+// Generously sized presets so the inner logo artwork & typography are big and clear
 const sizeMap = {
-  sm: 'h-8 sm:h-9',
-  md: 'h-11 sm:h-12 md:h-13',
-  lg: 'h-16 sm:h-20',
-  xl: 'h-20 sm:h-24',
+  sm: 'h-11 sm:h-12',
+  md: 'h-16 sm:h-18 md:h-20 lg:h-22',
+  lg: 'h-22 sm:h-26 md:h-30',
+  xl: 'h-30 sm:h-36 md:h-44',
 }
 
 const markSizeMap = {
-  sm: 36,
-  md: 48,
-  lg: 64,
-  xl: 80,
+  sm: 44,
+  md: 60,
+  lg: 80,
+  xl: 104,
 }
 
 export const GlamisteraLogoMark: React.FC<{
   size?: number | string
   className?: string
   animated?: boolean
-}> = ({ size = 48, className = '', animated = true }) => {
+}> = ({ size = 60, className = '', animated = true }) => {
   const sizeStyle = typeof size === 'number' ? { width: size, height: size } : { width: size, height: size }
 
   return (
     <div
       style={sizeStyle}
-      className={`relative inline-flex items-center justify-center rounded-2xl bg-[#FAF7F0] p-1 border border-[#D49B24]/40 shadow-sm overflow-hidden shrink-0 select-none ${
+      className={`relative inline-flex items-center justify-center shrink-0 select-none ${
         animated ? 'transition-transform duration-300 hover:scale-105' : ''
       } ${className}`}
       aria-label="glaMISTERa Mark"
@@ -68,7 +73,7 @@ export const GlamisteraLogoMark: React.FC<{
       <img
         src={glamisteraLogoImg}
         alt="glaMISTERa"
-        className="w-full h-full object-contain mix-blend-multiply"
+        className="w-full h-full object-contain filter drop-shadow-sm"
         loading="eager"
       />
     </div>
@@ -90,18 +95,20 @@ export const GlamisteraLogo: React.FC<GlamisteraLogoProps> = ({
     return <GlamisteraLogoMark size={markPx} className={className} animated={animated} />
   }
 
-  // Dark theme presentation: wrap in luxury ivory capsule so the artwork and typography pop vividly
+  // Dark theme presentation (e.g. Footer):
+  // Logo has transparent background; on dark navy, an elegant luminous pill or soft backdrop
+  // ensures both the pink and deep blue lettering remain crystal-clear
   if (theme === 'dark') {
     return (
       <div
-        className={`inline-flex items-center justify-center bg-[#FAF7F0] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-[#D49B24]/50 shadow-md transition-all duration-300 ${
-          animated ? 'hover:border-[#D49B24] hover:shadow-[#D49B24]/20 hover:scale-[1.02]' : ''
+        className={`inline-flex items-center justify-center bg-white/95 px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-lg border border-[#D49B24]/40 transition-all duration-300 ${
+          animated ? 'hover:scale-[1.03] hover:shadow-[#D49B24]/30' : ''
         } ${className}`}
       >
         <img
           src={glamisteraLogoImg}
           alt="glaMISTERa - Jewellery for Every You"
-          className={`${heightClass} w-auto object-contain mix-blend-multiply select-none`}
+          className={`${heightClass} w-auto object-contain select-none`}
           loading="eager"
         />
       </div>
@@ -112,28 +119,28 @@ export const GlamisteraLogo: React.FC<GlamisteraLogoProps> = ({
   if (variant === 'badge') {
     return (
       <div
-        className={`inline-flex items-center justify-center bg-[#FAF7F0] px-4 py-2 rounded-full border border-[#D49B24]/40 shadow-sm backdrop-blur-sm select-none transition-all duration-300 ${
+        className={`inline-flex items-center justify-center bg-white/90 px-5 py-2.5 rounded-full border border-[#D49B24]/40 shadow-sm backdrop-blur-sm select-none transition-all duration-300 ${
           animated ? 'hover:scale-105' : ''
         } ${className}`}
       >
         <img
           src={glamisteraLogoImg}
           alt="glaMISTERa"
-          className={`${heightClass} w-auto object-contain mix-blend-multiply`}
+          className={`${heightClass} w-auto object-contain`}
           loading="eager"
         />
       </div>
     )
   }
 
-  // Stacked variant (for Hero, About showcase)
+  // Stacked variant (for About page, Hero showcase)
   if (variant === 'stacked') {
     return (
       <div className={`flex flex-col items-center justify-center text-center select-none ${className}`}>
         <img
           src={glamisteraLogoImg}
           alt="glaMISTERa - Jewellery for Every You"
-          className={`${heightClass} w-auto object-contain mix-blend-multiply transition-transform duration-300 ${
+          className={`${heightClass} w-auto object-contain transition-transform duration-300 ${
             animated ? 'hover:scale-105' : ''
           }`}
           loading="eager"
@@ -143,16 +150,17 @@ export const GlamisteraLogo: React.FC<GlamisteraLogoProps> = ({
   }
 
   // Default: Horizontal presentation (Navbar / Header layout)
+  // Completely transparent background - just showing the inner logo artwork & typography
   return (
     <div
       className={`inline-flex items-center select-none transition-transform duration-300 ${
-        animated ? 'hover:scale-[1.02]' : ''
+        animated ? 'hover:scale-[1.03]' : ''
       } ${className}`}
     >
       <img
         src={glamisteraLogoImg}
         alt="glaMISTERa - Jewellery for Every You"
-        className={`${heightClass} w-auto object-contain mix-blend-multiply`}
+        className={`${heightClass} w-auto object-contain drop-shadow-sm`}
         loading="eager"
       />
     </div>

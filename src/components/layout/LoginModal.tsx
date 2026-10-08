@@ -96,12 +96,12 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         email: 'meera.sharma@example.com',
         isVip: true,
         memberSince: 'September 2024',
-        tier: 'Aurelia Privé Gold Member'
+        tier: 'glaMISTERa Privé Gold Member'
       })
-      setSuccessMessage('Welcome back to Aurelia Privé!')
+      setSuccessMessage('Welcome back to glaMISTERa Privé!')
       addToast({
         title: 'Logged In Successfully',
-        description: 'Welcome back to Aurelia Privé Club',
+        description: 'Welcome back to glaMISTERa Privé Club',
         type: 'success'
       })
       setTimeout(() => {
@@ -123,9 +123,9 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         email,
         isVip: true,
         memberSince: 'September 2024',
-        tier: 'Aurelia Privé Gold Member'
+        tier: 'glaMISTERa Privé Gold Member'
       })
-      setSuccessMessage('Welcome back to Aurelia Privé!')
+      setSuccessMessage('Welcome back to glaMISTERa Privé!')
       addToast({
         title: 'Logged In Successfully',
         description: 'Signed in with email',
@@ -147,10 +147,10 @@ export const LoginModal: React.FC<LoginModalProps> = ({
       setUser({
         name: fullName,
         phone,
-        email: email || `${phone}@aureliaprive.com`,
+        email: email || `${phone}@glamisteraprive.com`,
         isVip: true,
         memberSince: 'Today',
-        tier: 'Aurelia Privé Gold Member'
+        tier: 'glaMISTERa Privé Gold Member'
       })
       setSuccessMessage(`Welcome to Privé, ${fullName}!`)
       addToast({
@@ -175,7 +175,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         email: 'meera.sharma@example.com',
         isVip: true,
         memberSince: 'August 2024',
-        tier: 'Aurelia Privé Gold Member'
+        tier: 'glaMISTERa Privé Gold Member'
       })
       setSuccessMessage('Welcome, Princess Meera!')
       addToast({
@@ -224,7 +224,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
             className="relative w-full max-w-md bg-[#FAF7F0] rounded-3xl shadow-2xl border border-[#EADBCE] p-6 sm:p-8 z-10 overflow-hidden max-h-[90vh] overflow-y-auto transform-gpu will-change-transform"
             role="dialog"
             aria-modal="true"
-            aria-label="Aurelia Privé Login"
+            aria-label="glaMISTERa Privé Login"
           >
             {/* Top decorative gradient line */}
             <div className="rainbow-line absolute top-0 left-0 right-0 h-1.5" />
